@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
-import { Bell, Calendar, FileText, Activity, Heart, QrCode } from 'lucide-react-native';
+import { Bell, Calendar, FileText, Activity, Heart, QrCode, Plus } from 'lucide-react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { StatCard } from '@/components/dashboard/StatCard';
 import { QuickActionCard } from '@/components/dashboard/QuickActionCard';
 import { AppointmentCard } from '@/components/dashboard/AppointmentCard';
 import { PrescriptionCard } from '@/components/dashboard/PrescriptionCard';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { Card } from '@/components/ui/Card';
 import { useAuthStore } from '@/store/authStore';
 import { useHealthStore } from '@/store/healthStore';
 import { useResponsive } from '@/hooks/useResponsive';
 import { subscribeToHealthData, subscribeToAppointments, getPrescriptions } from '@/services/firebaseService';
-import { Colors, Spacing, FontSizes, BorderRadius, Shadows } from '@/constants/theme';
+import { Colors, Spacing, FontSizes, BorderRadius, Shadows, Typography } from '@/constants/theme';
 
 export default function HomeScreen() {
   const { user } = useAuthStore();
@@ -103,13 +105,18 @@ export default function HomeScreen() {
   if (isLoading) {
     return (
       <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <LoadingSpinner />
       </SafeAreaView>
     );
   }
 
+  const currentHour = new Date().getHours();
+  const greeting = currentHour < 12 ? 'Good morning' : currentHour < 18 ? 'Good afternoon' : 'Good evening';
+
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <ScrollView 
         style={styles.scrollView} 
         showsVerticalScrollIndicator={false}
@@ -118,13 +125,46 @@ export default function HomeScreen() {
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.headerContent}>
-            <Text style={styles.greeting}>Good morning,</Text>
-            <Text style={styles.userName}>{user?.displayName || 'User'}</Text>
+            <View style={styles.greetingContainer}>
+              <Text style={styles.greeting}>{greeting},</Text>
+              <Text style={styles.userName}>{user?.displayName || 'User'}</Text>
+            </View>
+            <Text style={styles.subtitle}>How are you feeling today?</Text>
           </View>
-          <TouchableOpacity style={styles.notificationButton}>
-            <Bell size={24} color={Colors.textSecondary} />
-          </TouchableOpacity>
+          <View style={styles.headerActions}>
+            <TouchableOpacity style={styles.notificationButton}>
+              <Bell size={24} color={Colors.textSecondary} />
+              <View style={styles.notificationBadge} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.avatarButton}>
+              <Text style={styles.avatarText}>
+                {user?.displayName?.charAt(0)?.toUpperCase() || 'U'}
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
+
+        {/* Today's Appointment Card */}
+        {upcomingAppointment && (
+          <Card variant="elevated" style={styles.appointmentCard}>
+            <LinearGradient
+              colors={[Colors.primary, Colors.primaryDark]}
+              style={styles.appointmentGradient}
+            >
+              <View style={styles.appointmentHeader}>
+                <Text style={styles.appointmentLabel}>Appointment today</Text>
+                <Calendar size={20} color={Colors.textInverse} />
+              </View>
+              <AppointmentCard
+                doctorName={upcomingAppointment.doctorName}
+                specialty={upcomingAppointment.specialty}
+                date={upcomingAppointment.date}
+                time={upcomingAppointment.time}
+                imageUrl={upcomingAppointment.imageUrl}
+              />
+            </LinearGradient>
+          </Card>
+        )}
 
         {/* Health Stats Section */}
         <View style={styles.section}>
@@ -136,9 +176,9 @@ export default function HomeScreen() {
           </View>
           
           {error.healthData ? (
-            <View style={styles.errorContainer}>
+            <Card variant="outlined" style={styles.errorCard}>
               <Text style={styles.errorText}>{error.healthData}</Text>
-            </View>
+            </Card>
           ) : (
             <ScrollView 
               horizontal 
@@ -151,14 +191,14 @@ export default function HomeScreen() {
                 value={healthData.heartRate?.toString() || '72'}
                 unit="bpm"
                 icon={<Heart size={24} color="#fff" />}
-                gradient={['#EF4444', '#DC2626']}
+                gradient={[Colors.error, '#DC2626']}
               />
               <StatCard
                 title="Steps Today"
                 value={healthData.steps?.toLocaleString() || '8,432'}
                 unit="steps"
                 icon={<Activity size={24} color="#fff" />}
-                gradient={['#10B981', '#059669']}
+                gradient={[Colors.success, '#059669']}
               />
               <StatCard
                 title="Sleep"
@@ -171,59 +211,38 @@ export default function HomeScreen() {
           )}
         </View>
 
-        {/* Quick Actions Section */}
+        {/* Services Section */}
         <View style={styles.section}>
-          <Text style={styles.quickActionsTitle}>Quick Actions</Text>
-          <View style={styles.quickActionsContainer}>
+          <Text style={styles.sectionTitle}>Services</Text>
+          <View style={styles.servicesGrid}>
             <QuickActionCard
               title="Medical History"
-              subtitle="View complete medical records"
+              subtitle="View complete records"
               icon={<FileText size={24} color={Colors.primary} />}
               onPress={handleMedicalHistory}
-              variant="full"
+              variant="service"
             />
             <QuickActionCard
-              title="Generate QR Code"
-              subtitle="Share your health profile"
+              title="Generate QR"
+              subtitle="Share health profile"
               icon={<QrCode size={24} color={Colors.primary} />}
               onPress={handleGenerateQR}
-              variant="full"
+              variant="service"
             />
-          </View>
-        </View>
-
-        {/* Upcoming Appointments Section */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Upcoming Appointments</Text>
-            <TouchableOpacity onPress={handleViewAppointments}>
-              <Text style={styles.seeAllText}>See All</Text>
-            </TouchableOpacity>
-          </View>
-          
-          <View style={styles.contentCard}>
-            {error.appointments ? (
-              <View style={styles.errorContainer}>
-                <Text style={styles.errorText}>{error.appointments}</Text>
-              </View>
-            ) : upcomingAppointment ? (
-              <AppointmentCard
-                doctorName={upcomingAppointment.doctorName}
-                specialty={upcomingAppointment.specialty}
-                date={upcomingAppointment.date}
-                time={upcomingAppointment.time}
-                imageUrl={upcomingAppointment.imageUrl}
-              />
-            ) : (
-              <EmptyState
-                icon={<Calendar size={40} color={Colors.textTertiary} />}
-                title="No upcoming appointments"
-                description="Schedule your next appointment to stay on top of your health"
-                actionText="Book Appointment"
-                onAction={handleBookAppointment}
-                variant="compact"
-              />
-            )}
+            <QuickActionCard
+              title="Book Visit"
+              subtitle="Schedule appointment"
+              icon={<Plus size={24} color={Colors.primary} />}
+              onPress={handleBookAppointment}
+              variant="service"
+            />
+            <QuickActionCard
+              title="Prescriptions"
+              subtitle="Manage medications"
+              icon={<FileText size={24} color={Colors.primary} />}
+              onPress={handleViewPrescriptions}
+              variant="service"
+            />
           </View>
         </View>
 
@@ -254,7 +273,7 @@ export default function HomeScreen() {
                 ))}
               </ScrollView>
             ) : (
-              <View style={styles.emptyStateContainer}>
+              <Card variant="outlined">
                 <EmptyState
                   icon={<FileText size={40} color={Colors.textTertiary} />}
                   title="No active prescriptions"
@@ -263,7 +282,7 @@ export default function HomeScreen() {
                   onAction={handleBookAppointment}
                   variant="compact"
                 />
-              </View>
+              </Card>
             )}
           </View>
         </View>
@@ -289,7 +308,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     paddingHorizontal: Spacing.xl,
     paddingTop: Spacing.lg,
     paddingBottom: Spacing.xxl,
@@ -299,24 +318,81 @@ const styles = StyleSheet.create({
   headerContent: {
     flex: 1,
   },
+  greetingContainer: {
+    marginBottom: Spacing.sm,
+  },
   greeting: {
-    fontSize: FontSizes.md,
+    fontSize: Typography.body.fontSize,
     fontFamily: 'Inter-Regular',
     color: Colors.textSecondary,
     marginBottom: Spacing.xs,
   },
   userName: {
-    fontSize: FontSizes.xxl,
+    fontSize: Typography.h1.fontSize,
     fontFamily: 'Inter-Bold',
     color: Colors.textPrimary,
   },
+  subtitle: {
+    fontSize: Typography.h4.fontSize,
+    fontFamily: 'Inter-Medium',
+    color: Colors.textSecondary,
+  },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.md,
+  },
   notificationButton: {
-    width: 48,
-    height: 48,
+    width: 44,
+    height: 44,
     borderRadius: BorderRadius.full,
     backgroundColor: Colors.gray100,
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'relative',
+  },
+  notificationBadge: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: Colors.error,
+  },
+  avatarButton: {
+    width: 44,
+    height: 44,
+    borderRadius: BorderRadius.full,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  avatarText: {
+    fontSize: Typography.body.fontSize,
+    fontFamily: 'Inter-SemiBold',
+    color: Colors.textInverse,
+  },
+  appointmentCard: {
+    marginHorizontal: Spacing.xl,
+    marginBottom: Spacing.xxl,
+    padding: 0,
+    overflow: 'hidden',
+  },
+  appointmentGradient: {
+    padding: Spacing.xl,
+    borderRadius: BorderRadius.xl,
+  },
+  appointmentHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: Spacing.lg,
+  },
+  appointmentLabel: {
+    fontSize: Typography.body.fontSize,
+    fontFamily: 'Inter-SemiBold',
+    color: Colors.textInverse,
   },
   section: {
     marginBottom: Spacing.xxxxl,
@@ -329,18 +405,12 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.xl,
   },
   sectionTitle: {
-    fontSize: FontSizes.xl,
+    fontSize: Typography.h2.fontSize,
     fontFamily: 'Inter-Bold',
     color: Colors.textPrimary,
-  },
-  quickActionsTitle: {
-    fontSize: FontSizes.xl,
-    fontFamily: 'Inter-Bold',
-    color: Colors.textPrimary,
-    marginBottom: Spacing.lg,
   },
   seeAllText: {
-    fontSize: FontSizes.sm,
+    fontSize: Typography.caption.fontSize,
     fontFamily: 'Inter-SemiBold',
     color: Colors.primary,
   },
@@ -351,14 +421,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.xl,
     gap: Spacing.md,
   },
-  quickActionsContainer: {
+  servicesGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: Spacing.lg,
-  },
-  contentCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: BorderRadius.xl,
-    padding: Spacing.xl,
-    ...Shadows.md,
   },
   prescriptionsContainer: {
     // No background or shadow - let individual cards handle their own styling
@@ -367,22 +433,14 @@ const styles = StyleSheet.create({
     gap: Spacing.md,
     paddingHorizontal: Spacing.xs, // Small padding to prevent cards from touching edges
   },
-  emptyStateContainer: {
-    backgroundColor: Colors.surface,
-    borderRadius: BorderRadius.xl,
-    padding: Spacing.xl,
-    ...Shadows.md,
-  },
-  errorContainer: {
-    backgroundColor: Colors.surface,
-    borderRadius: BorderRadius.lg,
-    padding: Spacing.xl,
+  errorCard: {
+    padding: Spacing.lg,
     alignItems: 'center',
     borderLeftWidth: 4,
     borderLeftColor: Colors.error,
   },
   errorText: {
-    fontSize: FontSizes.md,
+    fontSize: Typography.body.fontSize,
     fontFamily: 'Inter-Regular',
     color: Colors.error,
     textAlign: 'center',

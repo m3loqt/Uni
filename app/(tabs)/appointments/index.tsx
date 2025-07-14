@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, RefreshControl } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, RefreshControl, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
-import { Plus, Bell, Calendar } from 'lucide-react-native';
+import { Plus, Bell, Calendar, Filter } from 'lucide-react-native';
 import { AppointmentListCard } from '@/components/appointments/AppointmentListCard';
 import { FilterTabs } from '@/components/ui/FilterTabs';
 import { SearchBar } from '@/components/ui/SearchBar';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { Card } from '@/components/ui/Card';
 import { useAuthStore } from '@/store/authStore';
 import { useHealthStore } from '@/store/healthStore';
 import { subscribeToAppointments } from '@/services/firebaseService';
-import { Colors, Spacing, FontSizes, BorderRadius } from '@/constants/theme';
+import { Colors, Spacing, FontSizes, BorderRadius, Typography } from '@/constants/theme';
 import { FilterOption } from '@/types';
 
 const filterOptions: FilterOption[] = ['All', 'Upcoming', 'Completed', 'Cancelled'];
@@ -60,6 +61,7 @@ export default function AppointmentsScreen() {
   if (loading.appointments && !refreshing) {
     return (
       <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <LoadingSpinner />
       </SafeAreaView>
     );
@@ -67,10 +69,12 @@ export default function AppointmentsScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
+      
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerContent}>
-          <Text style={styles.headerTitle}>Appointments</Text>
+          <Text style={styles.headerTitle}>Visits</Text>
           <Text style={styles.headerSubtitle}>
             {filteredAppointments.length} {filteredAppointments.length === 1 ? 'appointment' : 'appointments'}
           </Text>
@@ -80,7 +84,7 @@ export default function AppointmentsScreen() {
             <Plus size={22} color={Colors.primary} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionButton}>
-            <Bell size={22} color={Colors.textSecondary} />
+            <Filter size={22} color={Colors.textSecondary} />
           </TouchableOpacity>
         </View>
       </View>
@@ -95,17 +99,27 @@ export default function AppointmentsScreen() {
       </View>
 
       {/* Filters */}
-      <FilterTabs
-        options={filterOptions}
-        selectedOption={selectedFilter}
-        onSelect={setSelectedFilter}
-        variant="compact"
-      />
+      <View style={styles.filtersContainer}>
+        <FilterTabs
+          options={filterOptions}
+          selectedOption={selectedFilter}
+          onSelect={setSelectedFilter}
+          variant="compact"
+        />
+        <View style={styles.sortingContainer}>
+          <Text style={styles.sortingLabel}>Sorting</Text>
+          <TouchableOpacity style={styles.sortingButton}>
+            <View style={styles.sortingIndicator} />
+          </TouchableOpacity>
+        </View>
+      </View>
 
       {/* Error State */}
       {error.appointments && (
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{error.appointments}</Text>
+          <Card variant="outlined" style={styles.errorCard}>
+            <Text style={styles.errorText}>{error.appointments}</Text>
+          </Card>
         </View>
       )}
 
@@ -116,25 +130,33 @@ export default function AppointmentsScreen() {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
+        contentContainerStyle={styles.scrollContent}
       >
         <View style={styles.appointmentsList}>
           {filteredAppointments.length > 0 ? (
-            filteredAppointments.map((appointment) => (
-              <AppointmentListCard
-                key={appointment.id}
-                {...appointment}
-                onPress={() => handleAppointmentPress(appointment.id)}
-              />
-            ))
+            <>
+              {/* Month Header */}
+              <Text style={styles.monthHeader}>September 2024</Text>
+              
+              {filteredAppointments.map((appointment) => (
+                <AppointmentListCard
+                  key={appointment.id}
+                  {...appointment}
+                  onPress={() => handleAppointmentPress(appointment.id)}
+                />
+              ))}
+            </>
           ) : (
-            <EmptyState
-              icon={<Calendar size={48} color={Colors.textTertiary} />}
-              title="No appointments found"
-              description={searchQuery ? "Try adjusting your search terms" : "Book your first appointment to get started"}
-              actionText="Book Appointment"
-              onAction={handleBookAppointment}
-              variant="compact"
-            />
+            <Card variant="outlined">
+              <EmptyState
+                icon={<Calendar size={48} color={Colors.textTertiary} />}
+                title="No appointments found"
+                description={searchQuery ? "Try adjusting your search terms" : "Book your first appointment to get started"}
+                actionText="Book Appointment"
+                onAction={handleBookAppointment}
+                variant="compact"
+              />
+            </Card>
           )}
         </View>
       </ScrollView>
@@ -160,13 +182,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerTitle: {
-    fontSize: FontSizes.xxl,
+    fontSize: Typography.h1.fontSize,
     fontFamily: 'Inter-Bold',
     color: Colors.textPrimary,
     marginBottom: Spacing.xs,
   },
   headerSubtitle: {
-    fontSize: FontSizes.sm,
+    fontSize: Typography.caption.fontSize,
     fontFamily: 'Inter-Medium',
     color: Colors.textSecondary,
   },
@@ -184,26 +206,63 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     paddingHorizontal: Spacing.xl,
+    paddingVertical: Spacing.lg,
+    backgroundColor: Colors.surface,
+  },
+  filtersContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: Spacing.xl,
     paddingVertical: Spacing.md,
     backgroundColor: Colors.surface,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+  },
+  sortingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+  },
+  sortingLabel: {
+    fontSize: Typography.caption.fontSize,
+    fontFamily: 'Inter-Medium',
+    color: Colors.textSecondary,
+  },
+  sortingButton: {
+    padding: Spacing.xs,
+  },
+  sortingIndicator: {
+    width: 20,
+    height: 12,
+    backgroundColor: Colors.primary,
+    borderRadius: BorderRadius.xs,
   },
   scrollView: {
     flex: 1,
   },
+  scrollContent: {
+    paddingBottom: Spacing.xxxxl,
+  },
   appointmentsList: {
-    padding: Spacing.lg,
-    gap: Spacing.md,
+    padding: Spacing.xl,
+  },
+  monthHeader: {
+    fontSize: Typography.h3.fontSize,
+    fontFamily: 'Inter-Bold',
+    color: Colors.textPrimary,
+    marginBottom: Spacing.lg,
   },
   errorContainer: {
     margin: Spacing.lg,
-    padding: Spacing.md,
-    backgroundColor: Colors.surface,
-    borderRadius: BorderRadius.md,
+  },
+  errorCard: {
+    padding: Spacing.lg,
     borderLeftWidth: 4,
     borderLeftColor: Colors.error,
   },
   errorText: {
-    fontSize: FontSizes.sm,
+    fontSize: Typography.body.fontSize,
     fontFamily: 'Inter-Regular',
     color: Colors.error,
   },

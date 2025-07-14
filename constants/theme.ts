@@ -1,40 +1,59 @@
 export const Colors = {
-  primary: '#004D80',
-  primaryLight: '#4695EB',
+  // Primary brand colors - inspired by the blue theme in reference
+  primary: '#2563EB', // Modern blue
+  primaryLight: '#60A5FA',
+  primaryDark: '#1D4ED8',
+  
+  // Secondary colors
   secondary: '#10B981',
   accent: '#F59E0B',
+  
+  // Status colors
   error: '#EF4444',
   warning: '#F59E0B',
   success: '#10B981',
+  info: '#3B82F6',
   
-  // Grays
-  gray50: '#F9FAFB',
-  gray100: '#F3F4F6',
-  gray200: '#E5E7EB',
-  gray300: '#D1D5DB',
-  gray400: '#9CA3AF',
-  gray500: '#6B7280',
-  gray600: '#4B5563',
-  gray700: '#374151',
-  gray800: '#1F2937',
-  gray900: '#111827',
+  // Neutral palette - more sophisticated grays
+  gray50: '#F8FAFC',
+  gray100: '#F1F5F9',
+  gray200: '#E2E8F0',
+  gray300: '#CBD5E1',
+  gray400: '#94A3B8',
+  gray500: '#64748B',
+  gray600: '#475569',
+  gray700: '#334155',
+  gray800: '#1E293B',
+  gray900: '#0F172A',
   
-  // Background
-  background: '#F9FAFB',
+  // Background colors
+  background: '#F8FAFC',
   surface: '#FFFFFF',
+  surfaceElevated: '#FFFFFF',
   
-  // Text
-  textPrimary: '#111827',
-  textSecondary: '#6B7280',
-  textTertiary: '#9CA3AF',
+  // Text colors with better contrast
+  textPrimary: '#0F172A',
+  textSecondary: '#475569',
+  textTertiary: '#94A3B8',
+  textInverse: '#FFFFFF',
   
-  // Status colors
-  statusUpcoming: '#10B981',
-  statusCompleted: '#6B7280',
+  // Status colors for appointments/prescriptions
+  statusUpcoming: '#3B82F6',
+  statusCompleted: '#10B981',
   statusCancelled: '#EF4444',
   statusActive: '#10B981',
-  statusExpired: '#EF4444',
+  statusExpired: '#94A3B8',
   statusLowStock: '#F59E0B',
+  
+  // Interactive states
+  hover: '#F1F5F9',
+  pressed: '#E2E8F0',
+  focus: '#DBEAFE',
+  
+  // Borders
+  border: '#E2E8F0',
+  borderLight: '#F1F5F9',
+  borderFocus: '#3B82F6',
 } as const;
 
 export const Spacing = {
@@ -46,26 +65,29 @@ export const Spacing = {
   xxl: 24,
   xxxl: 32,
   xxxxl: 48,
+  xxxxxl: 64,
 } as const;
 
 export const BorderRadius = {
-  sm: 8,
-  md: 12,
-  lg: 16,
-  xl: 20,
-  xxl: 24,
+  xs: 4,
+  sm: 6,
+  md: 8,
+  lg: 12,
+  xl: 16,
+  xxl: 20,
+  xxxl: 24,
   full: 9999,
 } as const;
 
 export const FontSizes = {
-  xxs: 10.5,
-  xs: 12,
-  sm: 14,
-  md: 16,
-  lg: 18,
-  xl: 20,
-  xxl: 24,
-  xxxl: 32,
+  xs: 11,
+  sm: 13,
+  md: 15,
+  lg: 17,
+  xl: 19,
+  xxl: 22,
+  xxxl: 28,
+  xxxxl: 36,
 } as const;
 
 export const FontWeights = {
@@ -73,30 +95,52 @@ export const FontWeights = {
   medium: '500',
   semibold: '600',
   bold: '700',
+  extrabold: '800',
 } as const;
 
 export const Shadows = {
-  sm: {
+  xs: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
     elevation: 1,
   },
+  sm: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
   md: {
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
+    shadowRadius: 6,
+    elevation: 4,
   },
   lg: {
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
-    elevation: 5,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.1,
+    shadowRadius: 15,
+    elevation: 8,
   },
+  xl: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 20 },
+    shadowOpacity: 0.1,
+    shadowRadius: 25,
+    elevation: 12,
+  },
+} as const;
+
+// Animation durations
+export const Animations = {
+  fast: 150,
+  normal: 250,
+  slow: 350,
 } as const;
 
 // Responsive breakpoints
@@ -105,4 +149,58 @@ export const Breakpoints = {
   md: 768,
   lg: 1024,
   xl: 1280,
+} as const;
+
+// Typography scale
+export const Typography = {
+  display: {
+    fontSize: FontSizes.xxxxl,
+    fontWeight: FontWeights.bold,
+    lineHeight: 44,
+  },
+  h1: {
+    fontSize: FontSizes.xxxl,
+    fontWeight: FontWeights.bold,
+    lineHeight: 36,
+  },
+  h2: {
+    fontSize: FontSizes.xxl,
+    fontWeight: FontWeights.semibold,
+    lineHeight: 28,
+  },
+  h3: {
+    fontSize: FontSizes.xl,
+    fontWeight: FontWeights.semibold,
+    lineHeight: 24,
+  },
+  h4: {
+    fontSize: FontSizes.lg,
+    fontWeight: FontWeights.semibold,
+    lineHeight: 22,
+  },
+  body: {
+    fontSize: FontSizes.md,
+    fontWeight: FontWeights.regular,
+    lineHeight: 22,
+  },
+  bodyMedium: {
+    fontSize: FontSizes.md,
+    fontWeight: FontWeights.medium,
+    lineHeight: 22,
+  },
+  caption: {
+    fontSize: FontSizes.sm,
+    fontWeight: FontWeights.regular,
+    lineHeight: 18,
+  },
+  captionMedium: {
+    fontSize: FontSizes.sm,
+    fontWeight: FontWeights.medium,
+    lineHeight: 18,
+  },
+  small: {
+    fontSize: FontSizes.xs,
+    fontWeight: FontWeights.regular,
+    lineHeight: 16,
+  },
 } as const;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Calendar, Clock, MapPin } from 'lucide-react-native';
-import { Colors, Spacing, FontSizes, BorderRadius, Shadows } from '@/constants/theme';
+import { Calendar, Clock, MapPin, ChevronRight } from 'lucide-react-native';
+import { Card } from '@/components/ui/Card';
+import { Colors, Spacing, FontSizes, BorderRadius, Shadows, Typography } from '@/constants/theme';
 
 interface AppointmentListCardProps {
   id: string;
@@ -38,59 +39,77 @@ export function AppointmentListCard({
     }
   };
 
+  const getStatusText = () => {
+    switch (status) {
+      case 'upcoming':
+        return 'Confirmed';
+      case 'completed':
+        return 'Completed';
+      case 'cancelled':
+        return 'Cancelled';
+      default:
+        return status;
+    }
+  };
+
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <View style={styles.cardHeader}>
-        <Image source={{ uri: imageUrl }} style={styles.doctorImage} />
-        <View style={styles.doctorInfo}>
-          <View style={styles.nameRow}>
-            <Text style={styles.doctorName} numberOfLines={1}>{doctorName}</Text>
-            <View style={[styles.statusBadge, { backgroundColor: getStatusColor() }]}>
-              <Text style={styles.statusText}>{status}</Text>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.95}>
+      <Card variant="elevated" style={styles.card}>
+        <View style={styles.cardHeader}>
+          <Image source={{ uri: imageUrl }} style={styles.doctorImage} />
+          <View style={styles.doctorInfo}>
+            <View style={styles.nameRow}>
+              <Text style={styles.doctorName} numberOfLines={1}>{doctorName}</Text>
+              <ChevronRight size={20} color={Colors.textTertiary} />
+            </View>
+            <Text style={styles.specialty} numberOfLines={1}>{specialty}</Text>
+            <View style={styles.statusContainer}>
+              <View style={[styles.statusDot, { backgroundColor: getStatusColor() }]} />
+              <Text style={[styles.statusText, { color: getStatusColor() }]}>
+                {getStatusText()}
+              </Text>
             </View>
           </View>
-          <Text style={styles.specialty} numberOfLines={1}>{specialty}</Text>
         </View>
-      </View>
 
-      <View style={styles.cardContent}>
-        <View style={styles.infoRow}>
-          <MapPin size={14} color={Colors.textSecondary} />
-          <Text style={styles.infoText} numberOfLines={1}>{clinic}</Text>
-        </View>
-        
-        <View style={styles.timeRow}>
-          <View style={styles.timeItem}>
-            <Calendar size={14} color={Colors.primary} />
-            <Text style={styles.timeText}>{date}</Text>
+        <View style={styles.divider} />
+
+        <View style={styles.cardContent}>
+          <View style={styles.infoRow}>
+            <MapPin size={16} color={Colors.textSecondary} />
+            <Text style={styles.infoText} numberOfLines={1}>{clinic}</Text>
           </View>
-          <View style={styles.timeItem}>
-            <Clock size={14} color={Colors.primary} />
-            <Text style={styles.timeText}>{time}</Text>
+          
+          <View style={styles.timeRow}>
+            <View style={styles.timeItem}>
+              <Calendar size={16} color={Colors.primary} />
+              <Text style={styles.timeText}>{date}</Text>
+            </View>
+            <View style={styles.timeItem}>
+              <Clock size={16} color={Colors.primary} />
+              <Text style={styles.timeText}>{time}</Text>
+            </View>
           </View>
         </View>
-      </View>
+      </Card>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: Colors.surface,
-    borderRadius: BorderRadius.lg,
-    padding: Spacing.lg,
-    ...Shadows.md,
+    marginBottom: Spacing.md,
   },
   cardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: Spacing.md,
+    marginBottom: Spacing.lg,
   },
   doctorImage: {
-    width: 56,
-    height: 56,
+    width: 64,
+    height: 64,
     borderRadius: BorderRadius.lg,
-    marginRight: Spacing.md,
+    marginRight: Spacing.lg,
   },
   doctorInfo: {
     flex: 1,
@@ -102,38 +121,48 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.xs,
   },
   doctorName: {
-    fontSize: FontSizes.lg,
-    fontFamily: 'Inter-SemiBold',
+    fontSize: Typography.h4.fontSize,
+    fontFamily: 'Inter-Bold',
     color: Colors.textPrimary,
     flex: 1,
     marginRight: Spacing.sm,
   },
-  statusBadge: {
-    paddingHorizontal: Spacing.sm,
-    paddingVertical: Spacing.xs,
-    borderRadius: BorderRadius.sm,
-  },
-  statusText: {
-    fontSize: FontSizes.xs,
-    fontFamily: 'Inter-SemiBold',
-    color: Colors.surface,
-    textTransform: 'capitalize',
-  },
   specialty: {
-    fontSize: FontSizes.sm,
+    fontSize: Typography.body.fontSize,
     fontFamily: 'Inter-Regular',
     color: Colors.textSecondary,
+    marginBottom: Spacing.sm,
   },
-  cardContent: {
-    gap: Spacing.sm,
-  },
-  infoRow: {
+  statusContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.xs,
   },
+  statusDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+  },
+  statusText: {
+    fontSize: Typography.captionMedium.fontSize,
+    fontFamily: 'Inter-SemiBold',
+    textTransform: 'capitalize',
+  },
+  divider: {
+    height: 1,
+    backgroundColor: Colors.border,
+    marginBottom: Spacing.lg,
+  },
+  cardContent: {
+    gap: Spacing.md,
+  },
+  infoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+  },
   infoText: {
-    fontSize: FontSizes.sm,
+    fontSize: Typography.body.fontSize,
     fontFamily: 'Inter-Regular',
     color: Colors.textSecondary,
     flex: 1,
@@ -141,18 +170,15 @@ const styles = StyleSheet.create({
   timeRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: Spacing.sm,
-    borderTopWidth: 1,
-    borderTopColor: Colors.gray100,
   },
   timeItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: Spacing.xs,
+    gap: Spacing.sm,
     flex: 1,
   },
   timeText: {
-    fontSize: FontSizes.sm,
+    fontSize: Typography.bodyMedium.fontSize,
     fontFamily: 'Inter-SemiBold',
     color: Colors.textPrimary,
   },

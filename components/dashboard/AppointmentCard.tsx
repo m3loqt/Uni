@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Calendar, Clock, MapPin } from 'lucide-react-native';
-import { Colors, Spacing, FontSizes, BorderRadius } from '@/constants/theme';
+import { Calendar, Clock } from 'lucide-react-native';
+import { Colors, Spacing, FontSizes, BorderRadius, Typography } from '@/constants/theme';
 
 interface AppointmentCardProps {
   doctorName: string;
@@ -13,7 +13,7 @@ interface AppointmentCardProps {
 
 export function AppointmentCard({ doctorName, specialty, date, time, imageUrl }: AppointmentCardProps) {
   return (
-    <TouchableOpacity style={styles.card} activeOpacity={0.7}>
+    <TouchableOpacity style={styles.card} activeOpacity={0.9}>
       <View style={styles.header}>
         <Image source={{ uri: imageUrl }} style={styles.doctorImage} />
         <View style={styles.doctorInfo}>
@@ -22,15 +22,17 @@ export function AppointmentCard({ doctorName, specialty, date, time, imageUrl }:
         </View>
       </View>
       
-      <View style={styles.divider} />
-      
       <View style={styles.timeInfo}>
         <View style={styles.timeItem}>
-          <Calendar size={18} color={Colors.primary} />
+          <View style={styles.timeIconContainer}>
+            <Calendar size={16} color={Colors.textInverse} />
+          </View>
           <Text style={styles.timeText}>{date}</Text>
         </View>
         <View style={styles.timeItem}>
-          <Clock size={18} color={Colors.primary} />
+          <View style={styles.timeIconContainer}>
+            <Clock size={16} color={Colors.textInverse} />
+          </View>
           <Text style={styles.timeText}>{time}</Text>
         </View>
       </View>
@@ -40,7 +42,11 @@ export function AppointmentCard({ doctorName, specialty, date, time, imageUrl }:
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: BorderRadius.lg,
+    padding: Spacing.lg,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
   },
   header: {
     flexDirection: 'row',
@@ -48,29 +54,26 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.lg,
   },
   doctorImage: {
-    width: 64,
-    height: 64,
-    borderRadius: BorderRadius.xl,
-    marginRight: Spacing.lg,
+    width: 56,
+    height: 56,
+    borderRadius: BorderRadius.lg,
+    marginRight: Spacing.md,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
   },
   doctorInfo: {
     flex: 1,
     gap: Spacing.xs,
   },
   doctorName: {
-    fontSize: FontSizes.lg,
+    fontSize: Typography.h4.fontSize,
     fontFamily: 'Inter-Bold',
-    color: Colors.textPrimary,
+    color: Colors.textInverse,
   },
   specialty: {
-    fontSize: FontSizes.md,
+    fontSize: Typography.body.fontSize,
     fontFamily: 'Inter-Regular',
-    color: Colors.textSecondary,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: Colors.gray200,
-    marginBottom: Spacing.lg,
+    color: 'rgba(255, 255, 255, 0.8)',
   },
   timeInfo: {
     flexDirection: 'row',
@@ -82,9 +85,17 @@ const styles = StyleSheet.create({
     gap: Spacing.sm,
     flex: 1,
   },
+  timeIconContainer: {
+    width: 28,
+    height: 28,
+    borderRadius: BorderRadius.sm,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   timeText: {
-    fontSize: FontSizes.md,
+    fontSize: Typography.body.fontSize,
     fontFamily: 'Inter-SemiBold',
-    color: Colors.textPrimary,
+    color: Colors.textInverse,
   },
 });
