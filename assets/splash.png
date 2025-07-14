@@ -1,0 +1,7 @@
+<svg width="1284" height="2778" viewBox="0 0 1284 2778" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1284" height="2778" fill="#ffffff"/>
+  <circle cx="642" cy="1389" r="120" fill="#4F46E5"/>
+  <path d="M642 1309L662 1349H702L670 1373L680 1413L642 1389L604 1413L614 1373L582 1349H622L642 1309Z" fill="white"/>
+  <text x="642" y="1520" text-anchor="middle" font-family="system-ui" font-size="32" font-weight="600" fill="#1F2937">HealthConnect</text>
+  <text x="642" y="1560" text-anchor="middle" font-family="system-ui" font-size="18" fill="#6B7280">Your Health, Connected</text>
+</svg>

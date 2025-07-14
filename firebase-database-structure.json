@@ -1,0 +1,1008 @@
+{
+  "appointments": {
+    "L42iF5u8fTQkcjlhMA2aelAvQWx1": {
+      "appointment_6": {
+        "address": "789 Wellness Ave, Building B",
+        "clinic": "Respiratory Health Center",
+        "createdAt": "2024-01-18T13:00:00.000Z",
+        "date": "2024-01-24",
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "id": "appointment_6",
+        "imageUrl": "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "notes": "Asthma management and lung function assessment",
+        "phone": "+1234567894",
+        "reminderSet": true,
+        "reminderTime": "2024-01-24T14:30:00.000Z",
+        "specialty": "Pulmonologist",
+        "status": "upcoming",
+        "time": "15:30"
+      },
+      "appointment_7": {
+        "address": "123 Medical Plaza, Suite 200",
+        "clinic": "Heart Care Center",
+        "createdAt": "2024-01-19T10:30:00.000Z",
+        "date": "2024-01-26",
+        "doctorId": "user_uid_doctor_1",
+        "doctorName": "Dr. Emily Rodriguez",
+        "id": "appointment_7",
+        "imageUrl": "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "notes": "Preventive cardiac screening",
+        "phone": "+1234567892",
+        "reminderSet": true,
+        "reminderTime": "2024-01-26T10:15:00.000Z",
+        "specialty": "Cardiologist",
+        "status": "upcoming",
+        "time": "11:15"
+      },
+      "appointment_8": {
+        "address": "789 Wellness Ave, Building B",
+        "clinic": "Respiratory Health Center",
+        "completedAt": "2024-01-15T14:45:00.000Z",
+        "createdAt": "2024-01-10T16:00:00.000Z",
+        "date": "2024-01-15",
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "id": "appointment_8",
+        "imageUrl": "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "notes": "Initial consultation for asthma symptoms completed",
+        "phone": "+1234567894",
+        "specialty": "Pulmonologist",
+        "status": "completed",
+        "time": "14:00"
+      }
+    },
+    "user_uid_patient_1": {
+      "appointment_1": {
+        "address": "123 Medical Plaza, Suite 200",
+        "clinic": "Heart Care Center",
+        "createdAt": "2024-01-15T10:00:00.000Z",
+        "date": "2024-01-22",
+        "doctorId": "user_uid_doctor_1",
+        "doctorName": "Dr. Emily Rodriguez",
+        "id": "appointment_1",
+        "imageUrl": "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "notes": "Regular checkup for hypertension",
+        "phone": "+1234567892",
+        "reminderSet": true,
+        "reminderTime": "2024-01-22T13:30:00.000Z",
+        "specialty": "Cardiologist",
+        "status": "upcoming",
+        "time": "14:30"
+      },
+      "appointment_2": {
+        "address": "456 Health Street, Floor 3",
+        "clinic": "Diabetes Care Clinic",
+        "createdAt": "2024-01-16T14:30:00.000Z",
+        "date": "2024-01-25",
+        "doctorId": "user_uid_doctor_2",
+        "doctorName": "Dr. Michael Chen",
+        "id": "appointment_2",
+        "imageUrl": "https://images.pexels.com/photos/6749778/pexels-photo-6749778.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "notes": "Follow-up consultation",
+        "phone": "+1234567893",
+        "reminderSet": true,
+        "reminderTime": "2024-01-25T09:00:00.000Z",
+        "specialty": "Endocrinologist",
+        "status": "upcoming",
+        "time": "10:00"
+      },
+      "appointment_3": {
+        "address": "123 Medical Plaza, Suite 200",
+        "clinic": "Heart Care Center",
+        "completedAt": "2024-01-10T15:45:00.000Z",
+        "createdAt": "2024-01-05T09:00:00.000Z",
+        "date": "2024-01-10",
+        "doctorId": "user_uid_doctor_1",
+        "doctorName": "Dr. Emily Rodriguez",
+        "id": "appointment_3",
+        "imageUrl": "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "notes": "Routine cardiac examination completed",
+        "phone": "+1234567892",
+        "specialty": "Cardiologist",
+        "status": "completed",
+        "time": "15:00"
+      }
+    },
+    "user_uid_patient_2": {
+      "appointment_4": {
+        "address": "456 Health Street, Floor 3",
+        "clinic": "Diabetes Care Clinic",
+        "createdAt": "2024-01-12T16:00:00.000Z",
+        "date": "2024-01-23",
+        "doctorId": "user_uid_doctor_2",
+        "doctorName": "Dr. Michael Chen",
+        "id": "appointment_4",
+        "imageUrl": "https://images.pexels.com/photos/6749778/pexels-photo-6749778.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "notes": "Diabetes management consultation",
+        "phone": "+1234567893",
+        "reminderSet": true,
+        "reminderTime": "2024-01-23T10:00:00.000Z",
+        "specialty": "Endocrinologist",
+        "status": "upcoming",
+        "time": "11:00"
+      },
+      "appointment_5": {
+        "address": "123 Medical Plaza, Suite 200",
+        "clinic": "Heart Care Center",
+        "completedAt": "2024-01-20T09:45:00.000Z",
+        "createdAt": "2024-01-15T11:00:00.000Z",
+        "date": "2024-01-20",
+        "doctorId": "user_uid_doctor_1",
+        "doctorName": "Dr. Emily Rodriguez",
+        "id": "appointment_5",
+        "imageUrl": "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "notes": "Cardiovascular screening completed",
+        "phone": "+1234567892",
+        "specialty": "Cardiologist",
+        "status": "completed",
+        "time": "09:00"
+      }
+    }
+  },
+  "certificates": {
+    "L42iF5u8fTQkcjlhMA2aelAvQWx1": {
+      "certificate_4": {
+        "certificateNumber": "RH-2024-008",
+        "clinic": "Respiratory Health Center",
+        "createdAt": "2024-01-20T15:45:00.000Z",
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "expiryDate": "2024-07-20",
+        "id": "certificate_4",
+        "issueDate": "2024-01-20",
+        "licenseNumber": "MD54321",
+        "purpose": "Asthma management compliance",
+        "restrictions": "Avoid exposure to allergens",
+        "title": "Respiratory Health Certificate",
+        "type": "fitness",
+        "validFor": "Employment and insurance"
+      },
+      "certificate_5": {
+        "certificateNumber": "AM-2024-003",
+        "clinic": "Respiratory Health Center",
+        "createdAt": "2024-01-19T13:20:00.000Z",
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "expiryDate": "2024-07-19",
+        "id": "certificate_5",
+        "issueDate": "2024-01-19",
+        "licenseNumber": "MD54321",
+        "purpose": "Workplace allergy accommodation",
+        "restrictions": "Avoid peanuts and dust exposure",
+        "title": "Allergy Management Certificate",
+        "type": "fitness",
+        "validFor": "Employment accommodation"
+      },
+      "certificate_6": {
+        "certificateNumber": "FV-2024-015",
+        "clinic": "Respiratory Health Center",
+        "createdAt": "2024-01-10T11:30:00.000Z",
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "expiryDate": "2024-12-31",
+        "id": "certificate_6",
+        "issueDate": "2024-01-10",
+        "licenseNumber": "MD54321",
+        "purpose": "Annual flu vaccination",
+        "title": "Vaccination Certificate - Flu",
+        "type": "vaccination",
+        "vaccineDetails": {
+          "batchNumber": "FLU2024-001",
+          "doses": [
+            {
+              "date": "2024-01-10",
+              "doseNumber": 1,
+              "location": "Respiratory Health Center"
+            }
+          ],
+          "manufacturer": "Sanofi Pasteur",
+          "vaccineName": "Influenza Vaccine"
+        },
+        "validFor": "General health protection"
+      }
+    },
+    "user_uid_patient_1": {
+      "certificate_1": {
+        "certificateNumber": "FC-2024-001",
+        "clinic": "Heart Care Center",
+        "createdAt": "2024-01-15T16:00:00.000Z",
+        "doctorId": "user_uid_doctor_1",
+        "doctorName": "Dr. Emily Rodriguez",
+        "expiryDate": "2024-07-15",
+        "id": "certificate_1",
+        "issueDate": "2024-01-15",
+        "licenseNumber": "MD12345",
+        "purpose": "Employment fitness assessment",
+        "restrictions": "None",
+        "title": "Medical Fitness Certificate",
+        "type": "fitness",
+        "validFor": "General employment"
+      },
+      "certificate_2": {
+        "certificateNumber": "VC-2023-045",
+        "clinic": "Diabetes Care Clinic",
+        "createdAt": "2023-12-10T11:00:00.000Z",
+        "doctorId": "user_uid_doctor_2",
+        "doctorName": "Dr. Michael Chen",
+        "expiryDate": "2024-12-10",
+        "id": "certificate_2",
+        "issueDate": "2023-12-10",
+        "licenseNumber": "MD67890",
+        "purpose": "COVID-19 vaccination record",
+        "title": "Vaccination Certificate",
+        "type": "vaccination",
+        "vaccineDetails": {
+          "batchNumber": "ABC123",
+          "doses": [
+            {
+              "date": "2023-06-15",
+              "doseNumber": 1,
+              "location": "City Health Center"
+            },
+            {
+              "date": "2023-07-15",
+              "doseNumber": 2,
+              "location": "City Health Center"
+            },
+            {
+              "date": "2023-12-10",
+              "doseNumber": 3,
+              "location": "Diabetes Care Clinic"
+            }
+          ],
+          "manufacturer": "Pfizer-BioNTech",
+          "vaccineName": "COVID-19 mRNA Vaccine"
+        },
+        "validFor": "International travel"
+      }
+    },
+    "user_uid_patient_2": {
+      "certificate_3": {
+        "certificateNumber": "DM-2024-012",
+        "clinic": "Diabetes Care Clinic",
+        "createdAt": "2024-01-18T10:30:00.000Z",
+        "doctorId": "user_uid_doctor_2",
+        "doctorName": "Dr. Michael Chen",
+        "expiryDate": "2024-07-18",
+        "id": "certificate_3",
+        "issueDate": "2024-01-18",
+        "licenseNumber": "MD67890",
+        "purpose": "Diabetes management compliance",
+        "restrictions": "Regular monitoring required",
+        "title": "Diabetes Management Certificate",
+        "type": "fitness",
+        "validFor": "Insurance and employment"
+      }
+    }
+  },
+  "doctorAppointments": {
+    "user_uid_doctor_1": {
+      "appointment_today_1": {
+        "createdAt": "2024-01-15T10:00:00.000Z",
+        "date": "2024-01-20",
+        "id": "appointment_today_1",
+        "notes": "Regular cardiac checkup completed successfully",
+        "patientId": "user_uid_patient_1",
+        "patientName": "John Doe",
+        "specialty": "Cardiologist",
+        "status": "completed",
+        "time": "09:00"
+      },
+      "appointment_today_2": {
+        "createdAt": "2024-01-18T11:00:00.000Z",
+        "date": "2024-01-20",
+        "id": "appointment_today_2",
+        "notes": "Cardiovascular screening for diabetes patient",
+        "patientId": "user_uid_patient_2",
+        "patientName": "Sarah Johnson",
+        "specialty": "Cardiologist",
+        "status": "completed",
+        "time": "14:00"
+      },
+      "appointment_upcoming_1": {
+        "createdAt": "2024-01-15T10:00:00.000Z",
+        "date": "2024-01-22",
+        "id": "appointment_upcoming_1",
+        "notes": "Follow-up for hypertension management",
+        "patientId": "user_uid_patient_1",
+        "patientName": "John Doe",
+        "specialty": "Cardiologist",
+        "status": "upcoming",
+        "time": "14:30"
+      },
+      "appointment_upcoming_3": {
+        "createdAt": "2024-01-19T10:30:00.000Z",
+        "date": "2024-01-26",
+        "id": "appointment_upcoming_3",
+        "notes": "Preventive cardiac screening for young adult",
+        "patientId": "L42iF5u8fTQkcjlhMA2aelAvQWx1",
+        "patientName": "Marie Claire",
+        "specialty": "Cardiologist",
+        "status": "upcoming",
+        "time": "11:15"
+      }
+    },
+    "user_uid_doctor_2": {
+      "appointment_today_3": {
+        "createdAt": "2024-01-17T14:00:00.000Z",
+        "date": "2024-01-20",
+        "id": "appointment_today_3",
+        "notes": "Diabetes management review completed",
+        "patientId": "user_uid_patient_2",
+        "patientName": "Sarah Johnson",
+        "specialty": "Endocrinologist",
+        "status": "completed",
+        "time": "11:00"
+      },
+      "appointment_upcoming_2": {
+        "createdAt": "2024-01-12T16:00:00.000Z",
+        "date": "2024-01-23",
+        "id": "appointment_upcoming_2",
+        "notes": "Monthly diabetes consultation",
+        "patientId": "user_uid_patient_2",
+        "patientName": "Sarah Johnson",
+        "specialty": "Endocrinologist",
+        "status": "upcoming",
+        "time": "11:00"
+      }
+    },
+    "user_uid_doctor_3": {
+      "appointment_completed_1": {
+        "createdAt": "2024-01-10T16:00:00.000Z",
+        "date": "2024-01-15",
+        "id": "appointment_completed_1",
+        "notes": "Initial consultation for asthma symptoms completed. Prescribed inhalers and allergy medications.",
+        "patientId": "L42iF5u8fTQkcjlhMA2aelAvQWx1",
+        "patientName": "Marie Claire",
+        "specialty": "Pulmonologist",
+        "status": "completed",
+        "time": "14:00"
+      },
+      "appointment_upcoming_4": {
+        "createdAt": "2024-01-18T13:00:00.000Z",
+        "date": "2024-01-24",
+        "id": "appointment_upcoming_4",
+        "notes": "Follow-up for asthma management and lung function assessment",
+        "patientId": "L42iF5u8fTQkcjlhMA2aelAvQWx1",
+        "patientName": "Marie Claire",
+        "specialty": "Pulmonologist",
+        "status": "upcoming",
+        "time": "15:30"
+      }
+    }
+  },
+  "healthData": {
+    "L42iF5u8fTQkcjlhMA2aelAvQWx1": {
+      "bloodPressure": {
+        "diastolic": 78,
+        "recordedAt": "2024-01-21T07:15:00.000Z",
+        "systolic": 118
+      },
+      "bodyTemperature": 36.5,
+      "dailyMetrics": {
+        "2024-01-19": {
+          "activeMinutes": 42,
+          "caloriesBurned": 1950,
+          "sleepHours": 8.5,
+          "steps": 9800,
+          "waterIntake": 2.4
+        },
+        "2024-01-20": {
+          "activeMinutes": 55,
+          "caloriesBurned": 2150,
+          "sleepHours": 7.8,
+          "steps": 11200,
+          "waterIntake": 2.6
+        },
+        "2024-01-21": {
+          "activeMinutes": 68,
+          "caloriesBurned": 2380,
+          "sleepHours": 8.2,
+          "steps": 12450,
+          "waterIntake": 2.8
+        }
+      },
+      "heartRate": 75,
+      "lastUpdated": "2024-01-21T08:45:00.000Z",
+      "oxygenSaturation": 99,
+      "sleep": 8.2,
+      "steps": 12450,
+      "weight": 58.3
+    },
+    "user_uid_patient_1": {
+      "bloodPressure": {
+        "diastolic": 80,
+        "recordedAt": "2024-01-20T07:00:00.000Z",
+        "systolic": 120
+      },
+      "bodyTemperature": 36.6,
+      "dailyMetrics": {
+        "2024-01-19": {
+          "activeMinutes": 52,
+          "caloriesBurned": 2250,
+          "sleepHours": 8,
+          "steps": 9200,
+          "waterIntake": 2.3
+        },
+        "2024-01-20": {
+          "activeMinutes": 45,
+          "caloriesBurned": 2100,
+          "sleepHours": 7.5,
+          "steps": 8432,
+          "waterIntake": 2.1
+        }
+      },
+      "heartRate": 72,
+      "lastUpdated": "2024-01-20T08:00:00.000Z",
+      "oxygenSaturation": 98,
+      "sleep": 7.5,
+      "steps": 8432,
+      "weight": 70.5
+    },
+    "user_uid_patient_2": {
+      "bloodPressure": {
+        "diastolic": 75,
+        "recordedAt": "2024-01-20T07:30:00.000Z",
+        "systolic": 115
+      },
+      "bodyTemperature": 36.4,
+      "dailyMetrics": {
+        "2024-01-20": {
+          "activeMinutes": 38,
+          "caloriesBurned": 1850,
+          "sleepHours": 8,
+          "steps": 6800,
+          "waterIntake": 2.5
+        }
+      },
+      "heartRate": 68,
+      "lastUpdated": "2024-01-20T08:30:00.000Z",
+      "oxygenSaturation": 99,
+      "sleep": 8,
+      "steps": 6800,
+      "weight": 60.2
+    }
+  },
+  "notifications": {
+    "L42iF5u8fTQkcjlhMA2aelAvQWx1": {
+      "notification_3": {
+        "actionRequired": false,
+        "id": "notification_3",
+        "message": "You have an appointment with Dr. Lisa Thompson tomorrow at 3:30 PM",
+        "read": false,
+        "relatedId": "appointment_6",
+        "timestamp": "2024-01-23T15:30:00.000Z",
+        "title": "Upcoming Appointment",
+        "type": "appointment_reminder"
+      },
+      "notification_4": {
+        "actionRequired": false,
+        "id": "notification_4",
+        "message": "Congratulations! You've exceeded your daily step goal with 12,450 steps today.",
+        "read": false,
+        "timestamp": "2024-01-21T20:30:00.000Z",
+        "title": "Daily Step Goal Achieved!",
+        "type": "health_alert"
+      },
+      "notification_5": {
+        "actionRequired": false,
+        "id": "notification_5",
+        "message": "Don't forget to take your evening Cetirizine for allergy control.",
+        "read": true,
+        "relatedId": "prescription_8",
+        "timestamp": "2024-01-21T19:00:00.000Z",
+        "title": "Medication Reminder",
+        "type": "prescription_reminder"
+      }
+    },
+    "user_uid_doctor_1": {
+      "notification_6": {
+        "actionRequired": false,
+        "id": "notification_6",
+        "message": "You have 3 appointments scheduled for today",
+        "read": false,
+        "timestamp": "2024-01-20T08:00:00.000Z",
+        "title": "Today's Appointments",
+        "type": "appointment_reminder"
+      }
+    },
+    "user_uid_doctor_3": {
+      "notification_7": {
+        "actionRequired": false,
+        "id": "notification_7",
+        "message": "Marie Claire has an appointment tomorrow at 3:30 PM",
+        "read": false,
+        "relatedId": "appointment_6",
+        "timestamp": "2024-01-23T08:00:00.000Z",
+        "title": "Upcoming Appointment",
+        "type": "appointment_reminder"
+      }
+    },
+    "user_uid_patient_1": {
+      "notification_1": {
+        "actionRequired": false,
+        "id": "notification_1",
+        "message": "You have an appointment with Dr. Emily Rodriguez tomorrow at 2:30 PM",
+        "read": false,
+        "relatedId": "appointment_1",
+        "timestamp": "2024-01-21T14:30:00.000Z",
+        "title": "Upcoming Appointment",
+        "type": "appointment_reminder"
+      },
+      "notification_2": {
+        "actionRequired": true,
+        "id": "notification_2",
+        "message": "Your Metformin prescription has only 8 days left. Consider refilling soon.",
+        "read": true,
+        "relatedId": "prescription_2",
+        "timestamp": "2024-01-20T09:00:00.000Z",
+        "title": "Low Medication Stock",
+        "type": "prescription_reminder"
+      }
+    }
+  },
+  "prescriptions": {
+    "L42iF5u8fTQkcjlhMA2aelAvQWx1": {
+      "prescription_6": {
+        "createdAt": "2024-01-15T16:30:00.000Z",
+        "daysLeft": 75,
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "dosage": "2 puffs every 4-6 hours as needed",
+        "endDate": "2024-04-15",
+        "id": "prescription_6",
+        "instructions": "Use as rescue inhaler for asthma symptoms. Shake well before use.",
+        "medicineName": "Albuterol Inhaler",
+        "pharmacy": {
+          "address": "321 Health Boulevard",
+          "name": "Wellness Pharmacy",
+          "phone": "+1234567899"
+        },
+        "prescribedDate": "2024-01-15",
+        "refillsRemaining": 5,
+        "sideEffects": [
+          "tremor",
+          "nervousness",
+          "headache"
+        ],
+        "startDate": "2024-01-16",
+        "status": "active"
+      },
+      "prescription_7": {
+        "createdAt": "2024-01-15T16:35:00.000Z",
+        "daysLeft": 165,
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "dosage": "2 puffs twice daily",
+        "endDate": "2024-07-15",
+        "id": "prescription_7",
+        "instructions": "Use daily for asthma control. Rinse mouth after use.",
+        "medicineName": "Fluticasone Propionate",
+        "pharmacy": {
+          "address": "321 Health Boulevard",
+          "name": "Wellness Pharmacy",
+          "phone": "+1234567899"
+        },
+        "prescribedDate": "2024-01-15",
+        "refillsRemaining": 3,
+        "sideEffects": [
+          "throat irritation",
+          "hoarseness"
+        ],
+        "startDate": "2024-01-16",
+        "status": "active"
+      },
+      "prescription_8": {
+        "createdAt": "2024-01-18T11:20:00.000Z",
+        "daysLeft": 78,
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "dosage": "10mg daily",
+        "endDate": "2024-04-19",
+        "id": "prescription_8",
+        "instructions": "Take in the evening for seasonal allergies",
+        "medicineName": "Cetirizine",
+        "pharmacy": {
+          "address": "321 Health Boulevard",
+          "name": "Wellness Pharmacy",
+          "phone": "+1234567899"
+        },
+        "prescribedDate": "2024-01-18",
+        "refillsRemaining": 2,
+        "sideEffects": [
+          "drowsiness",
+          "dry mouth"
+        ],
+        "startDate": "2024-01-19",
+        "status": "active"
+      },
+      "prescription_9": {
+        "createdAt": "2024-01-20T14:15:00.000Z",
+        "daysLeft": 171,
+        "doctorId": "user_uid_doctor_3",
+        "doctorName": "Dr. Lisa Thompson",
+        "dosage": "10mg daily",
+        "endDate": "2024-07-21",
+        "id": "prescription_9",
+        "instructions": "Take in the evening for asthma and allergy control",
+        "medicineName": "Montelukast",
+        "pharmacy": {
+          "address": "321 Health Boulevard",
+          "name": "Wellness Pharmacy",
+          "phone": "+1234567899"
+        },
+        "prescribedDate": "2024-01-20",
+        "refillsRemaining": 4,
+        "sideEffects": [
+          "headache",
+          "stomach pain"
+        ],
+        "startDate": "2024-01-21",
+        "status": "active"
+      }
+    },
+    "user_uid_patient_1": {
+      "prescription_1": {
+        "createdAt": "2024-01-15T11:00:00.000Z",
+        "daysLeft": 15,
+        "doctorId": "user_uid_doctor_1",
+        "doctorName": "Dr. Emily Rodriguez",
+        "dosage": "10mg daily",
+        "endDate": "2024-02-15",
+        "id": "prescription_1",
+        "instructions": "Take with food in the morning",
+        "medicineName": "Lisinopril",
+        "pharmacy": {
+          "address": "123 Main Street",
+          "name": "City Pharmacy",
+          "phone": "+1234567896"
+        },
+        "prescribedDate": "2024-01-15",
+        "refillsRemaining": 2,
+        "sideEffects": [
+          "dizziness",
+          "dry cough"
+        ],
+        "startDate": "2024-01-16",
+        "status": "active"
+      },
+      "prescription_2": {
+        "createdAt": "2024-01-10T15:30:00.000Z",
+        "daysLeft": 8,
+        "doctorId": "user_uid_doctor_2",
+        "doctorName": "Dr. Michael Chen",
+        "dosage": "500mg twice daily",
+        "endDate": "2024-02-10",
+        "id": "prescription_2",
+        "instructions": "Take with meals",
+        "medicineName": "Metformin",
+        "pharmacy": {
+          "address": "456 Oak Avenue",
+          "name": "Health Plus Pharmacy",
+          "phone": "+1234567897"
+        },
+        "prescribedDate": "2024-01-10",
+        "refillsRemaining": 1,
+        "sideEffects": [
+          "nausea",
+          "stomach upset"
+        ],
+        "startDate": "2024-01-11",
+        "status": "active"
+      },
+      "prescription_3": {
+        "createdAt": "2023-12-20T10:00:00.000Z",
+        "daysLeft": 0,
+        "doctorId": "user_uid_doctor_1",
+        "doctorName": "Dr. Emily Rodriguez",
+        "dosage": "20mg daily",
+        "endDate": "2024-01-20",
+        "id": "prescription_3",
+        "instructions": "Take at bedtime",
+        "medicineName": "Atorvastatin",
+        "pharmacy": {
+          "address": "123 Main Street",
+          "name": "City Pharmacy",
+          "phone": "+1234567896"
+        },
+        "prescribedDate": "2023-12-20",
+        "refillsRemaining": 0,
+        "sideEffects": [
+          "muscle pain",
+          "headache"
+        ],
+        "startDate": "2023-12-21",
+        "status": "expired"
+      }
+    },
+    "user_uid_patient_2": {
+      "prescription_4": {
+        "createdAt": "2024-01-12T13:00:00.000Z",
+        "daysLeft": 20,
+        "doctorId": "user_uid_doctor_2",
+        "doctorName": "Dr. Michael Chen",
+        "dosage": "20 units daily",
+        "endDate": "2024-02-12",
+        "id": "prescription_4",
+        "instructions": "Inject subcutaneously at bedtime",
+        "medicineName": "Insulin Glargine",
+        "pharmacy": {
+          "address": "789 Medical Center Blvd",
+          "name": "Diabetes Care Pharmacy",
+          "phone": "+1234567898"
+        },
+        "prescribedDate": "2024-01-12",
+        "refillsRemaining": 3,
+        "sideEffects": [
+          "injection site reactions",
+          "hypoglycemia"
+        ],
+        "startDate": "2024-01-13",
+        "status": "active"
+      },
+      "prescription_5": {
+        "createdAt": "2024-01-18T14:00:00.000Z",
+        "daysLeft": 45,
+        "doctorId": "user_uid_doctor_2",
+        "doctorName": "Dr. Michael Chen",
+        "dosage": "1000mg daily",
+        "endDate": "2024-03-19",
+        "id": "prescription_5",
+        "instructions": "Take with dinner",
+        "medicineName": "Metformin XR",
+        "pharmacy": {
+          "address": "789 Medical Center Blvd",
+          "name": "Diabetes Care Pharmacy",
+          "phone": "+1234567898"
+        },
+        "prescribedDate": "2024-01-18",
+        "refillsRemaining": 2,
+        "sideEffects": [
+          "nausea",
+          "diarrhea"
+        ],
+        "startDate": "2024-01-19",
+        "status": "active"
+      }
+    }
+  },
+  "users": {
+    "L42iF5u8fTQkcjlhMA2aelAvQWx1": {
+      "createdAt": "2024-01-18T11:30:00.000Z",
+      "email": "marie.claire@gmail.com",
+      "lastLogin": "2024-01-21T14:22:00.000Z",
+      "name": "Marie Claire",
+      "profile": {
+        "bloodType": "B+",
+        "dateOfBirth": "1992-03-12",
+        "emergencyContact": {
+          "name": "Pierre Claire",
+          "phone": "+1234567898",
+          "relationship": "brother"
+        },
+        "gender": "female",
+        "height": 168,
+        "imageUrl": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "medicalHistory": {
+          "allergies": [
+            "peanuts",
+            "dust mites"
+          ],
+          "chronicConditions": [
+            "asthma",
+            "seasonal allergies"
+          ],
+          "surgeries": [
+            {
+              "date": "2010-07-15",
+              "hospital": "Metropolitan Medical Center",
+              "procedure": "Tonsillectomy"
+            }
+          ]
+        },
+        "phone": "+1234567899",
+        "weight": 58
+      },
+      "role": "patient"
+    },
+    "user_uid_doctor_1": {
+      "createdAt": "2024-01-01T09:00:00.000Z",
+      "email": "dr.emily@healthconnect.com",
+      "lastLogin": "2024-01-20T07:30:00.000Z",
+      "name": "Dr. Emily Rodriguez",
+      "profile": {
+        "address": "123 Medical Plaza, Suite 200",
+        "availability": {
+          "friday": [
+            "09:00",
+            "15:00"
+          ],
+          "monday": [
+            "09:00",
+            "17:00"
+          ],
+          "thursday": [
+            "09:00",
+            "17:00"
+          ],
+          "tuesday": [
+            "09:00",
+            "17:00"
+          ],
+          "wednesday": [
+            "09:00",
+            "17:00"
+          ]
+        },
+        "certifications": [
+          "Board Certified Cardiologist",
+          "ACLS Certified"
+        ],
+        "clinic": "Heart Care Center",
+        "education": "Harvard Medical School",
+        "experience": 15,
+        "licenseNumber": "MD12345",
+        "phone": "+1234567892",
+        "rating": 4.8,
+        "reviewCount": 127,
+        "specialty": "Cardiologist"
+      },
+      "role": "doctor"
+    },
+    "user_uid_doctor_2": {
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "email": "dr.michael@healthconnect.com",
+      "lastLogin": "2024-01-20T08:00:00.000Z",
+      "name": "Dr. Michael Chen",
+      "profile": {
+        "address": "456 Health Street, Floor 3",
+        "availability": {
+          "friday": [
+            "08:00",
+            "14:00"
+          ],
+          "monday": [
+            "08:00",
+            "16:00"
+          ],
+          "thursday": [
+            "08:00",
+            "16:00"
+          ],
+          "tuesday": [
+            "08:00",
+            "16:00"
+          ],
+          "wednesday": [
+            "08:00",
+            "16:00"
+          ]
+        },
+        "certifications": [
+          "Board Certified Endocrinologist",
+          "Diabetes Educator"
+        ],
+        "clinic": "Diabetes Care Clinic",
+        "education": "Johns Hopkins University",
+        "experience": 12,
+        "licenseNumber": "MD67890",
+        "phone": "+1234567893",
+        "rating": 4.9,
+        "reviewCount": 89,
+        "specialty": "Endocrinologist"
+      },
+      "role": "doctor"
+    },
+    "user_uid_doctor_3": {
+      "createdAt": "2024-01-01T11:00:00.000Z",
+      "email": "dr.lisa@healthconnect.com",
+      "lastLogin": "2024-01-21T08:45:00.000Z",
+      "name": "Dr. Lisa Thompson",
+      "profile": {
+        "address": "789 Wellness Ave, Building B",
+        "availability": {
+          "friday": [
+            "09:00",
+            "16:00"
+          ],
+          "monday": [
+            "09:00",
+            "17:00"
+          ],
+          "thursday": [
+            "09:00",
+            "17:00"
+          ],
+          "tuesday": [
+            "09:00",
+            "17:00"
+          ],
+          "wednesday": [
+            "09:00",
+            "17:00"
+          ]
+        },
+        "certifications": [
+          "Board Certified Pulmonologist",
+          "Sleep Medicine Certified"
+        ],
+        "clinic": "Respiratory Health Center",
+        "education": "Stanford University School of Medicine",
+        "experience": 10,
+        "licenseNumber": "MD54321",
+        "phone": "+1234567894",
+        "rating": 4.7,
+        "reviewCount": 156,
+        "specialty": "Pulmonologist"
+      },
+      "role": "doctor"
+    },
+    "user_uid_patient_1": {
+      "createdAt": "2024-01-15T10:30:00.000Z",
+      "email": "john.doe@email.com",
+      "lastLogin": "2024-01-20T08:15:00.000Z",
+      "name": "John Doe",
+      "profile": {
+        "bloodType": "O+",
+        "dateOfBirth": "1990-05-15",
+        "emergencyContact": {
+          "name": "Jane Doe",
+          "phone": "+1234567890",
+          "relationship": "spouse"
+        },
+        "gender": "male",
+        "height": 175,
+        "imageUrl": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "medicalHistory": {
+          "allergies": [
+            "penicillin",
+            "shellfish"
+          ],
+          "chronicConditions": [
+            "hypertension"
+          ],
+          "surgeries": [
+            {
+              "date": "2015-03-20",
+              "hospital": "City General Hospital",
+              "procedure": "Appendectomy"
+            }
+          ]
+        },
+        "phone": "+1234567890",
+        "weight": 70
+      },
+      "role": "patient"
+    },
+    "user_uid_patient_2": {
+      "createdAt": "2024-01-10T14:20:00.000Z",
+      "email": "sarah.johnson@email.com",
+      "lastLogin": "2024-01-20T09:45:00.000Z",
+      "name": "Sarah Johnson",
+      "profile": {
+        "bloodType": "A+",
+        "dateOfBirth": "1985-08-22",
+        "emergencyContact": {
+          "name": "Michael Johnson",
+          "phone": "+1234567891",
+          "relationship": "husband"
+        },
+        "gender": "female",
+        "height": 165,
+        "imageUrl": "https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "medicalHistory": {
+          "allergies": [
+            "latex"
+          ],
+          "chronicConditions": [
+            "diabetes"
+          ]
+        },
+        "phone": "+1234567891",
+        "weight": 60
+      },
+      "role": "patient"
+    }
+  }
+}
